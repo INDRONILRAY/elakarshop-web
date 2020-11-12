@@ -594,7 +594,6 @@ CREATE TABLE `drivers_payouts` (
 CREATE TABLE `driver_markets` (
   `user_id` int(10) UNSIGNED NOT NULL,
   `market_id` int(10) UNSIGNED NOT NULL,
-  PRIMARY KEY (`user_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
