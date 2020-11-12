@@ -290,7 +290,6 @@ INSERT INTO `favorites` (`id`, `product_id`, `user_id`, `created_at`, `updated_a
 CREATE TABLE `favorite_options` (
   `option_id` int(10) UNSIGNED NOT NULL,
   `favorite_id` int(10) UNSIGNED NOT NULL,
-  PRIMARY KEY (`option_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
