@@ -6,7 +6,7 @@
 -- Generation Time: Nov 10, 2020 at 12:14 PM
 -- Server version: 10.3.24-MariaDB-log-cll-lve
 -- PHP Version: 7.3.6
-
+set sql_require_primary_key ==off
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
 START TRANSACTION;
