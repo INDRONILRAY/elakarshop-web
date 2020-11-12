@@ -31,7 +31,8 @@ SET time_zone = "+00:00";
 CREATE TABLE `app_settings` (
   `id` int(10) UNSIGNED NOT NULL,
   `key` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `value` text COLLATE utf8mb4_unicode_ci NOT NULL
+  `value` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY ('id')
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
