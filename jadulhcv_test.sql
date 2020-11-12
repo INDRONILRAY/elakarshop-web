@@ -188,7 +188,8 @@ INSERT INTO `carts` (`id`, `product_id`, `user_id`, `quantity`, `created_at`, `u
 
 CREATE TABLE `cart_options` (
   `option_id` int(10) UNSIGNED NOT NULL,
-  `cart_id` int(10) UNSIGNED NOT NULL
+  `cart_id` int(10) UNSIGNED NOT NULL,
+  PRIMARY KEY (`option_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -253,7 +254,8 @@ CREATE TABLE `currencies` (
   `decimal_digits` tinyint(3) UNSIGNED DEFAULT NULL,
   `rounding` tinyint(3) UNSIGNED DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -288,7 +290,8 @@ CREATE TABLE `custom_fields` (
   `order` tinyint(4) DEFAULT NULL,
   `custom_field_model` varchar(127) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -313,7 +316,8 @@ CREATE TABLE `custom_field_values` (
   `customizable_type` varchar(127) COLLATE utf8mb4_unicode_ci NOT NULL,
   `customizable_id` int(11) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -447,7 +451,8 @@ CREATE TABLE `delivery_addresses` (
   `is_default` tinyint(1) DEFAULT NULL,
   `user_id` int(10) UNSIGNED NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -521,7 +526,8 @@ CREATE TABLE `discountables` (
   `id` int(10) UNSIGNED NOT NULL,
   `coupon_id` int(10) UNSIGNED NOT NULL,
   `discountable_type` varchar(127) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `discountable_id` int(11) NOT NULL
+  `discountable_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -538,7 +544,8 @@ CREATE TABLE `drivers` (
   `earning` double(9,2) NOT NULL DEFAULT 0.00,
   `available` tinyint(1) NOT NULL DEFAULT 0,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -574,7 +581,8 @@ CREATE TABLE `drivers_payouts` (
   `paid_date` datetime DEFAULT NULL,
   `note` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -585,7 +593,8 @@ CREATE TABLE `drivers_payouts` (
 
 CREATE TABLE `driver_markets` (
   `user_id` int(10) UNSIGNED NOT NULL,
-  `market_id` int(10) UNSIGNED NOT NULL
+  `market_id` int(10) UNSIGNED NOT NULL,
+  PRIMARY KEY (`user_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -646,7 +655,8 @@ CREATE TABLE `earnings` (
   `delivery_fee` double(9,2) NOT NULL DEFAULT 0.00,
   `tax` double(9,2) NOT NULL DEFAULT 0.00,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -703,7 +713,8 @@ CREATE TABLE `faqs` (
   `answer` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `faq_category_id` int(10) UNSIGNED NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -752,7 +763,8 @@ CREATE TABLE `faq_categories` (
   `id` int(10) UNSIGNED NOT NULL,
   `name` varchar(127) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -776,7 +788,8 @@ CREATE TABLE `favorites` (
   `product_id` int(10) UNSIGNED NOT NULL,
   `user_id` int(10) UNSIGNED NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -840,7 +853,8 @@ INSERT INTO `favorites` (`id`, `product_id`, `user_id`, `created_at`, `updated_a
 
 CREATE TABLE `favorite_options` (
   `option_id` int(10) UNSIGNED NOT NULL,
-  `favorite_id` int(10) UNSIGNED NOT NULL
+  `favorite_id` int(10) UNSIGNED NOT NULL,
+  PRIMARY KEY (`option_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -865,7 +879,8 @@ CREATE TABLE `fields` (
   `name` varchar(127) COLLATE utf8mb4_unicode_ci NOT NULL,
   `description` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -891,7 +906,8 @@ CREATE TABLE `galleries` (
   `description` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `market_id` int(10) UNSIGNED NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -945,7 +961,8 @@ CREATE TABLE `markets` (
   `active` tinyint(1) DEFAULT 0,
   `available_for_delivery` tinyint(1) DEFAULT 1,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -997,7 +1014,8 @@ CREATE TABLE `markets_payouts` (
   `paid_date` datetime DEFAULT NULL,
   `note` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -1015,7 +1033,8 @@ INSERT INTO `markets_payouts` (`id`, `market_id`, `method`, `amount`, `paid_date
 
 CREATE TABLE `market_fields` (
   `field_id` int(10) UNSIGNED NOT NULL,
-  `market_id` int(10) UNSIGNED NOT NULL
+  `market_id` int(10) UNSIGNED NOT NULL,
+  PRIMARY KEY (`field_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -1094,7 +1113,8 @@ CREATE TABLE `market_reviews` (
   `user_id` int(10) UNSIGNED NOT NULL,
   `market_id` int(10) UNSIGNED NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -1148,7 +1168,8 @@ CREATE TABLE `media` (
   `responsive_images` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `order_column` int(10) UNSIGNED DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -4952,7 +4973,8 @@ CREATE TABLE `permissions` (
   `guard_name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'web',
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  `deleted_at` timestamp NULL DEFAULT NULL
+  `deleted_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -5163,7 +5185,8 @@ CREATE TABLE `products` (
   `market_id` int(10) UNSIGNED NOT NULL,
   `category_id` int(10) UNSIGNED NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -7613,7 +7636,8 @@ CREATE TABLE `product_orders` (
   `product_id` int(10) UNSIGNED NOT NULL,
   `order_id` int(10) UNSIGNED NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -7871,7 +7895,8 @@ INSERT INTO `product_orders` (`id`, `price`, `quantity`, `product_id`, `order_id
 CREATE TABLE `product_order_options` (
   `product_order_id` int(10) UNSIGNED NOT NULL,
   `option_id` int(10) UNSIGNED NOT NULL,
-  `price` double(8,2) NOT NULL DEFAULT 0.00
+  `price` double(8,2) NOT NULL DEFAULT 0.00,
+  PRIMARY KEY (`product_order_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -7887,7 +7912,8 @@ CREATE TABLE `product_reviews` (
   `user_id` int(10) UNSIGNED NOT NULL,
   `product_id` int(10) UNSIGNED NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -7941,7 +7967,8 @@ CREATE TABLE `roles` (
   `default` tinyint(1) DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  `deleted_at` timestamp NULL DEFAULT NULL
+  `deleted_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -7962,7 +7989,8 @@ INSERT INTO `roles` (`id`, `name`, `guard_name`, `default`, `created_at`, `updat
 
 CREATE TABLE `role_has_permissions` (
   `permission_id` int(10) UNSIGNED NOT NULL,
-  `role_id` int(10) UNSIGNED NOT NULL
+  `role_id` int(10) UNSIGNED NOT NULL,
+  PRIMARY KEY (`permission_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -8274,7 +8302,8 @@ CREATE TABLE `slides` (
   `market_id` int(10) UNSIGNED DEFAULT NULL,
   `enabled` tinyint(1) DEFAULT 1,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -8298,7 +8327,8 @@ CREATE TABLE `uploads` (
   `id` int(10) UNSIGNED NOT NULL,
   `uuid` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -8910,7 +8940,8 @@ CREATE TABLE `users` (
   `paypal_email` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -8997,7 +9028,7 @@ INSERT INTO `users` (`id`, `name`, `email`, `phone`, `is_phone_verified`, `passw
 
 CREATE TABLE `user_markets` (
   `user_id` int(10) UNSIGNED NOT NULL,
-  `market_id` int(10) UNSIGNED NOT NULL
+  `market_id` int(10) UNSIGNED NOT NULL,
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
